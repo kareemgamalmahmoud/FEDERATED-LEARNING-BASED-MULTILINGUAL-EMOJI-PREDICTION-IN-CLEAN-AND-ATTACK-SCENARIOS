@@ -2,7 +2,7 @@
 
 > This folder contains a Gradio application for demonstrating the performance of our transformer model on the task of sentiment analysis. 
 
-> The app.py file contains the code for the web application. The web application is available online [here](Karim-Gamal/Demo-for-Federated-Learning-Based-Multilingual-Emoji-Prediction), and you can also run it locally on your machine using the instructions below.
+> The app.py file contains the code for the web application. The web application is available online [here](https://huggingface.co/spaces/Karim-Gamal/Demo-for-Federated-Learning-Based-Multilingual-Emoji-Prediction), and you can also run it locally on your machine using the instructions below.
 
 > ![image](https://user-images.githubusercontent.com/51359449/224560170-23bfc6ab-7f6a-438f-8427-7f9a96c9f0c4.png)
 
