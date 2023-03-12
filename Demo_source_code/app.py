@@ -47,7 +47,7 @@ def preprocess(text):
 
 # the MMiniLM model
 API_URL_MMiniLM = "https://api-inference.huggingface.co/models/Karim-Gamal/MMiniLM-L12-finetuned-emojis-IID-Fed"
-headers_MMiniLM = {"Authorization": "Bearer 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"}
+headers_MMiniLM = {"Authorization": "Bearer your HF read token"}
 
 
 def query_MMiniLM(payload):
