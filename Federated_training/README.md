@@ -68,7 +68,7 @@ Specifically, we labeled the first 10 labels out of the 20 in each batch with th
 
 
 
-### Table_2 : SemEval testing data with Multilingual setting in clean and attack senarios Attackers ratio 50%
+### Table_2 : SemEval testing data with Multilingual setting in clean and attack senarios for Attackers ratio 50%
 
 | MiniLM |First experiment|IID|Non-IID|Continue training| | XLM-Roberta |First experiment|IID|Non-IID|Continue training|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
