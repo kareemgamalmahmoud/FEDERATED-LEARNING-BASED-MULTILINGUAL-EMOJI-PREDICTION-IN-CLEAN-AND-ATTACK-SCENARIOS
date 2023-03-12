@@ -1,0 +1,5 @@
+tweepy
+snscrape
+pandas
+numpy
+scikit-learn
