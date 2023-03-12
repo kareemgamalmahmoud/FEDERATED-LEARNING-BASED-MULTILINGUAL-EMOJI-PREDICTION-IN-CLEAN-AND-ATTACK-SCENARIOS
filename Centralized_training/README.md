@@ -58,6 +58,7 @@ This folder contains the following training files:
 
 > |Model|First experiment|IID|Non-IID|Continue training|
 > |:---:|:---:|:---:|:---:|:---:|
+> | "Tubingen-Oslo" First SemEval Team  | - | - | - | 35.99 |
 > |Twitter/twhin-bert-base|35.321|36.849|36.317|35.73|
 > |cardiffnlp/twitter-xlm-roberta-base |33.493|34.986|34.977|34.192|
 > |Multilingual-MiniLM |31.462|32.797|32.038|32.995|
