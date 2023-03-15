@@ -25,6 +25,7 @@ pip install -r requirements.txt
 ```
 python test_file.py "your_model_name"
 ```
+Such as : 
 ```
 python test_file.py "Karim-Gamal/XLM-Roberta-finetuned-emojis-1-client-toxic-cen-2"
 ```
