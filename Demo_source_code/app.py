@@ -1,5 +1,3 @@
-# !pip install argparse
-
 import gradio as gr
 import requests
 import argparse
@@ -45,287 +43,306 @@ def preprocess(text):
     return " ".join(new_text)
 
 
-# the MMiniLM model
-API_URL_MMiniLM = "https://api-inference.huggingface.co/models/Karim-Gamal/MMiniLM-L12-finetuned-emojis-IID-Fed"
-headers_MMiniLM = {"Authorization": "Bearer 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"}
+def main(token_):
+  # the MMiniLM model
+  API_URL_MMiniLM = "https://api-inference.huggingface.co/models/Karim-Gamal/MMiniLM-L12-finetuned-emojis-IID-Fed"
+  headers_MMiniLM = {"Authorization": "Bearer "+token_}
 
 
-def query_MMiniLM(payload):
-    response = requests.post(API_URL_MMiniLM, headers=headers_MMiniLM, json=payload)
-    return response.json()
+  def query_MMiniLM(payload):
+      response = requests.post(API_URL_MMiniLM, headers=headers_MMiniLM, json=payload)
+      return response.json()
 
-query_MMiniLM({	"inputs": 'test',})
+  query_MMiniLM({	"inputs": 'test',})
 
 
-def _method(text):
-  text = preprocess(text)
-  output_temp = query_MMiniLM({
-    	"inputs": text,
-    })
-  
-  # output_dict = {d['label']: d['score'] for d in output_temp[0]}
+  def _method(text):
+    text = preprocess(text)
+    output_temp = query_MMiniLM({
+        "inputs": text,
+      })
+    
+    # output_dict = {d['label']: d['score'] for d in output_temp[0]}
 
-  if output_temp:
-    output_dict = {d['label']: d['score'] for d in output_temp[0]}
-  else:
-    # handle the case where output_temp is empty
-    output_dict = {}
+    if output_temp:
+      output_dict = {d['label']: d['score'] for d in output_temp[0]}
+    else:
+      # handle the case where output_temp is empty
+      output_dict = {}
+        
+    input_list = list(output_dict.items())[:3]
+
+    output_dict = {key: value for key, value in input_list}
+    
+    return output_dict
+
+
+  # greet("sun")
+
+  interface = gr.Interface(
       
-  input_list = list(output_dict.items())[:3]
+      fn = _method, 
+      
+      inputs=gr.Textbox(placeholder="Enter sentence here..."), 
+      outputs="label",
+      examples=config.EX_LIST,
+      live = True,
+      
+      
+      title = 'MiniLM Multilingual',
+      
+      description=config.description,
+      article = '',
+      
+  )
+  list_interface.append(interface)
+  list_title.append('MiniLM Multilingual')
 
-  output_dict = {key: value for key, value in input_list}
-  
-  return output_dict
 
 
-# greet("sun")
+  # the XLM model
+  API_URL_XLM = "https://api-inference.huggingface.co/models/Karim-Gamal/XLM-Roberta-finetuned-emojis-IID-Fed"
+  headers_XLM = {"Authorization": "Bearer "+token_}
 
-interface = gr.Interface(
+
+  def query_XLM(payload):
+      response = requests.post(API_URL_XLM, headers=headers_XLM, json=payload)
+      return response.json()
+
+  query_XLM({	"inputs": 'test',})
+
+
+
+  def _method(text):
+    text = preprocess(text)
+    output_temp = query_XLM({
+        "inputs": text,
+      })
     
-    fn = _method, 
+    # output_dict = {d['label']: d['score'] for d in output_temp[0]}
+
+    if output_temp:
+      
+        output_dict = {d['label']: d['score'] for d in output_temp[0]}
+    else:
+      # handle the case where output_temp is empty
+      output_dict = {}
+
+    input_list = list(output_dict.items())[:3]
+
+    output_dict = {key: value for key, value in input_list}
     
-    inputs=gr.Textbox(placeholder="Enter sentence here..."), 
-    outputs="label",
-    examples=config.EX_LIST,
-    live = True,
+    return output_dict
+
+
+  # greet("sun")
+
+  interface = gr.Interface(
+      
+      fn = _method, 
+      
+      inputs=gr.Textbox(placeholder="Enter sentence here..."), 
+      outputs="label",
+      examples=config.EX_LIST,
+      live = True,
+      
+      
+      title = 'XLM Roberta Multilingual',
+      
+      description=config.description,
+      article = '',
+      
+  )
+  list_interface.append(interface)
+  list_title.append('XLM Roberta Multilingual')
+
+
+
+
+  # the bert model
+  API_URL_BERT = "https://api-inference.huggingface.co/models/Karim-Gamal/BERT-base-finetuned-emojis-IID-Fed"
+  headers_BERT = {"Authorization": "Bearer "+token_}
+
+
+  def query_BERT(payload):
+      response = requests.post(API_URL_BERT, headers=headers_BERT, json=payload)
+      return response.json()
+
+  query_BERT({	"inputs": 'test',})
+
+
+
+
+  def _method(text):
+    text = preprocess(text)
+    output_temp = query_BERT({
+        "inputs": text,
+      })
     
+    # output_dict = {d['label']: d['score'] for d in output_temp[0]}
+
+    if output_temp:
+      output_dict = {d['label']: d['score'] for d in output_temp[0]}
+    else:
+      # handle the case where output_temp is empty
+      output_dict = {}
+
+    input_list = list(output_dict.items())[:3]
+
+    output_dict = {key: value for key, value in input_list}
     
-    title = 'MiniLM Multilingual',
-    
-    description=config.description,
-    article = '',
-    
-)
-list_interface.append(interface)
-list_title.append('MiniLM Multilingual')
+    return output_dict
+
+
+  # greet("sun")
+
+  interface = gr.Interface(
+      
+      fn = _method, 
+      
+      inputs=gr.Textbox(placeholder="Enter sentence here..."), 
+      outputs="label",
+      examples=config.EX_LIST,
+      live = True,
+      
+      
+      title = 'BERT Multilingual',
+      
+      description=config.description,
+      article = '',
+      
+  )
+  list_interface.append(interface)
+  list_title.append('BERT Multilingual')
 
 
 
-# the XLM model
-API_URL_XLM = "https://api-inference.huggingface.co/models/Karim-Gamal/XLM-Roberta-finetuned-emojis-IID-Fed"
-headers_XLM = {"Authorization": "Bearer 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"}
+
+  # the Switch
+  API_URL_Switch = "https://api-inference.huggingface.co/models/Karim-Gamal/switch-base-8-finetuned-SemEval-2018-emojis-IID-Fed"
+  headers_Switch = {"Authorization": "Bearer "+token_}
 
 
-def query_XLM(payload):
-    response = requests.post(API_URL_XLM, headers=headers_XLM, json=payload)
-    return response.json()
+  def query_Switch(payload):
+      response = requests.post(API_URL_Switch, headers=headers_Switch, json=payload)
+      return response.json()
 
-query_XLM({	"inputs": 'test',})
+  query_Switch({	"inputs": 'test',})
 
 
 
-def _method(text):
-  text = preprocess(text)
-  output_temp = query_XLM({
-    	"inputs": text,
+
+  def _method(text):
+    text = preprocess(text)
+    output_temp = query_Switch({
+    "inputs": text,
     })
-  
-  # output_dict = {d['label']: d['score'] for d in output_temp[0]}
 
-  if output_temp:
-    output_dict = {d['label']: d['score'] for d in output_temp[0]}
-  else:
-    # handle the case where output_temp is empty
-    output_dict = {}
+    text_to_emoji = {'red' : '❤', 'face': '😍', 'joy':'😂', 'love':'💕', 'fire':'🔥', 'smile':'😊', 'sunglasses':'😎', 'sparkle':'✨', 'blue':'💙', 'kiss':'😘', 'camera':'📷', 'USA':'🇺🇸', 'sun':'☀' , 'purple':'💜', 'blink':'😉', 'hundred':'💯', 'beam':'😁', 'tree':'🎄', 'flash':'📸', 'tongue':'😜'}
 
-  input_list = list(output_dict.items())[:3]
+    # Extract the dictionary from the list
+    d = output_temp[0]
 
-  output_dict = {key: value for key, value in input_list}
-  
-  return output_dict
+    # Extract the text from the 'generated_text' key
+    text = d['generated_text']
 
-
-# greet("sun")
-
-interface = gr.Interface(
+    # my_dict = {}
+    # my_dict[str(text_to_emoji[text.split(' ')[0]])] = 0.99
+    return text_to_emoji[text.split(' ')[0]]
     
-    fn = _method, 
-    
-    inputs=gr.Textbox(placeholder="Enter sentence here..."), 
-    outputs="label",
-    examples=config.EX_LIST,
-    live = True,
-    
-    
-    title = 'XLM Roberta Multilingual',
-    
-    description=config.description,
-    article = '',
-    
-)
-list_interface.append(interface)
-list_title.append('XLM Roberta Multilingual')
+
+  # greet("sun")
+
+  interface = gr.Interface(
+      
+      fn = _method, 
+      
+      inputs=gr.Textbox(placeholder="Enter sentence here..."), 
+      outputs="text",
+      examples=config.EX_LIST,
+      live = True,
+      
+      
+      title = 'Switch-Base-8',
+      
+      description=config.description,
+      article = '',
+      
+  )
+  list_interface.append(interface)
+  list_title.append('Switch-Base-8')
+
+
+
+  import time
+  # delay of 40 seconds
+  time.sleep(40)
+
+
+  def _method(input_rating):
+
+    # tokenizer = AutoTokenizer.from_pretrained(config.CHECKPOINT_BERT)
+    # model_loaded = torch.load('/content/NEW_MODELS_Imbalance/Bert/g_ex3_bert_multi_fed_data_epoch_2.pt', map_location=torch.device('cpu'))
+
+    if input_rating <=2:
+      return {'🔥': 0.6, '✨': 0.3, '💯': 0.1}
+
+    elif input_rating <= 4 and input_rating >2:
+      return {'✨': 0.6, '😉': 0.3, '💯': 0.1}
+
+    elif input_rating >4:
+      return {'😍': 0.6, '💯': 0.3, '💕': 0.1}
+
+    # return test_with_sentance(text , config.model_loaded_bert_multi_NONIID , config.tokenizer_bert)
+
+  # greet("sun")
+
+  interface = gr.Interface(
+      
+      fn = _method, 
+      
+      inputs=gr.Slider(1, 5, value=4),
+      outputs="label",
+      # examples=config.EX_LIST,
+      live = True,
+      
+      
+      title = 'About us',
+      
+      description='We don\'t have sad emoji so our rating will always be great. 😂',
+      
+      # CSS Source : https://codepen.io/bibiangel199/pen/warevP
+
+      article = config.article + '<!-- this is the markup. you can change the details (your own name, your own avatar etc.) but don’t change the basic structure! --> <div class="div_table_"> <table class="table"> <tr> <td><aside class="profile-card"> <div class="mask-shadow"></div> <header> <!-- here’s the avatar --> <a href="https://www.linkedin.com/in/hossam-amer-23b9329b/"> <img src="https://drive.google.com/uc?export=view&id=1-C_UIimeqbofJC_lldC7IQzIOX_OYRSn"> </a> <!-- the username --> <h1 style = " font-size:20px; padding:20px; color:#444;  margin-bottom:5px; " >Dr. Hossam Amer</h1> <!-- and role or location --> <h2 style = "  font-size:14px; color:#acacac; text- margin:0; " >Research Scientist at Microsoft</h2> </header> </aside></td> <td><aside class="profile-card"> <div class="mask-shadow"></div> <header> <!-- here’s the avatar --> <a href="https://www.linkedin.com/in/yuanzhu-chen-3408265/"> <img src="https://drive.google.com/uc?export=view&id=1n5Vld5FJzp1TzTISM_fB69zPHAdfDYQn"> </a> <!-- the username --> <h1 style = " font-size:20px; padding:20px; color:#444;  margin-bottom:5px; " >Dr. Yuanzhu Chen</h1> <!-- and role or location --> <h2 style = "  font-size:14px; color:#acacac; text- margin:0; ">Professor at Queen\'s University</h2> </header> </aside></td> </tr> </table> </div> <div class="div_table_"> <table class="table"> <tr> <td><aside class="profile-card"> <div class="mask-shadow"></div> <header> <!-- here’s the avatar --> <a href="https://www.linkedin.com/in/abdelrahman-elhamoly/"> <img src="https://drive.google.com/uc?export=view&id=1a9tR4Xd5XSTmx7Dy_WfRHbVCSpbgAoYb"> </a> <!-- the username --> <h1 style = " font-size:20px; padding:20px; color:#444;  margin-bottom:5px; ">Abdelrahman El-Hamoly</h1> <!-- and role or location --> <h2 style = "  font-size:14px; color:#acacac; text- margin:0; " >Master\'s student at Queen\'s University</h2> </header> </aside></td> <td><aside class="profile-card"> <div class="mask-shadow"></div> <header> <!-- here’s the avatar --> <a href="https://www.linkedin.com/in/ahmed-mohamed-gaber-143b25175/"> <img src="https://drive.google.com/uc?export=view&id=1OiGZwhL23PYhIJzQexYvPDFRrgUIprMj"> </a> <!-- the username --> <h1 style = " font-size:20px; padding:20px; color:#444;  margin-bottom:5px; ">Ahmed Gaber</h1> <!-- and role or location --> <h2 style = "  font-size:14px; color:#acacac; text- margin:0; " >Master\'s student at Queen\'s University</h2> </header> </aside></td> <td><aside class="profile-card"> <div class="mask-shadow"></div> <header> <!-- here’s the avatar --> <a href="https://www.linkedin.com/in/karim-gamal-mahmoud/"> <img src="https://drive.google.com/uc?export=view&id=1Lg2RzimITL9y__X2hycBTX10rJ4o87Ax"> </a> <!-- the username --> <h1 style=" font-size:20px; padding:20px; color:#444;  margin-bottom:5px; ">Karim Gamal</h1> <!-- and role or location --> <h2 style = "  font-size:14px; color:#acacac; text- margin:0; " >Master\'s student at Queen\'s University</h2> </header> </aside></td> </tr> </table> </div>',
+      )
+  list_interface.append(interface)
+  list_title.append('About us')
 
 
 
 
-# the bert model
-API_URL_BERT = "https://api-inference.huggingface.co/models/Karim-Gamal/BERT-base-finetuned-emojis-IID-Fed"
-headers_BERT = {"Authorization": "Bearer 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"}
+  demo = gr.TabbedInterface(
+      list_interface, 
+      list_title,
+      title='Federated-Learning-Based-Multilingual-Emoji-Prediction',
+      css='.gradio-container {color : orange}',)
+      # css='.gradio-container {background-color: white; color : orange}',)
+  demo.launch(share=True)
 
 
-def query_BERT(payload):
-    response = requests.post(API_URL_BERT, headers=headers_BERT, json=payload)
-    return response.json()
+import sys
 
-query_BERT({	"inputs": 'test',})
+if __name__ == "__main__":
+    # Get the command-line argument
+    args = sys.argv[1:]
 
+    # If no argument was provided, print an error message and exit
+    if not args:
+        print("Please Enter the Model Name")
+        sys.exit(1)
 
+    # Get the first argument as the input text
+    input_text = args[0]
 
-
-def _method(text):
-  text = preprocess(text)
-  output_temp = query_BERT({
-    	"inputs": text,
-    })
-  
-  # output_dict = {d['label']: d['score'] for d in output_temp[0]}
-
-  if output_temp:
-    output_dict = {d['label']: d['score'] for d in output_temp[0]}
-  else:
-    # handle the case where output_temp is empty
-    output_dict = {}
-
-  input_list = list(output_dict.items())[:3]
-
-  output_dict = {key: value for key, value in input_list}
-  
-  return output_dict
-
-
-# greet("sun")
-
-interface = gr.Interface(
-    
-    fn = _method, 
-    
-    inputs=gr.Textbox(placeholder="Enter sentence here..."), 
-    outputs="label",
-    examples=config.EX_LIST,
-    live = True,
-    
-    
-    title = 'BERT Multilingual',
-    
-    description=config.description,
-    article = '',
-    
-)
-list_interface.append(interface)
-list_title.append('BERT Multilingual')
-
-
-
-
-# the Switch
-API_URL_Switch = "https://api-inference.huggingface.co/models/Karim-Gamal/switch-base-8-finetuned-SemEval-2018-emojis-IID-Fed"
-headers_Switch = {"Authorization": "Bearer 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"}
-
-
-def query_Switch(payload):
-    response = requests.post(API_URL_Switch, headers=headers_Switch, json=payload)
-    return response.json()
-
-query_Switch({	"inputs": 'test',})
-
-
-
-
-def _method(text):
-  text = preprocess(text)
-  output_temp = query_Switch({
-  "inputs": text,
-  })
-
-  text_to_emoji = {'red' : '❤', 'face': '😍', 'joy':'😂', 'love':'💕', 'fire':'🔥', 'smile':'😊', 'sunglasses':'😎', 'sparkle':'✨', 'blue':'💙', 'kiss':'😘', 'camera':'📷', 'USA':'🇺🇸', 'sun':'☀' , 'purple':'💜', 'blink':'😉', 'hundred':'💯', 'beam':'😁', 'tree':'🎄', 'flash':'📸', 'tongue':'😜'}
-
-  # Extract the dictionary from the list
-  d = output_temp[0]
-
-  # Extract the text from the 'generated_text' key
-  text = d['generated_text']
-
-  # my_dict = {}
-  # my_dict[str(text_to_emoji[text.split(' ')[0]])] = 0.99
-  return text_to_emoji[text.split(' ')[0]]
-  
-
-# greet("sun")
-
-interface = gr.Interface(
-    
-    fn = _method, 
-    
-    inputs=gr.Textbox(placeholder="Enter sentence here..."), 
-    outputs="text",
-    examples=config.EX_LIST,
-    live = True,
-    
-    
-    title = 'Switch-Base-8',
-    
-    description=config.description,
-    article = '',
-    
-)
-list_interface.append(interface)
-list_title.append('Switch-Base-8')
-
-
-
-import time
-# delay of 40 seconds
-time.sleep(40)
-
-
-def _method(input_rating):
-
-  # tokenizer = AutoTokenizer.from_pretrained(config.CHECKPOINT_BERT)
-  # model_loaded = torch.load('/content/NEW_MODELS_Imbalance/Bert/g_ex3_bert_multi_fed_data_epoch_2.pt', map_location=torch.device('cpu'))
-
-  if input_rating <=2:
-    return {'🔥': 0.6, '✨': 0.3, '💯': 0.1}
-
-  elif input_rating <= 4 and input_rating >2:
-    return {'✨': 0.6, '😉': 0.3, '💯': 0.1}
-
-  elif input_rating >4:
-    return {'😍': 0.6, '💯': 0.3, '💕': 0.1}
-
-  # return test_with_sentance(text , config.model_loaded_bert_multi_NONIID , config.tokenizer_bert)
-
-# greet("sun")
-
-interface = gr.Interface(
-    
-    fn = _method, 
-    
-    inputs=gr.Slider(1, 5, value=4),
-    outputs="label",
-    # examples=config.EX_LIST,
-    live = True,
-    
-    
-    title = 'About us',
-    
-    description='We don\'t have sad emoji so our rating will always be great. 😂',
-    
-    # CSS Source : https://codepen.io/bibiangel199/pen/warevP
-
-    article = config.article + '<!-- this is the markup. you can change the details (your own name, your own avatar etc.) but don’t change the basic structure! --> <div class="div_table_"> <table class="table"> <tr> <td><aside class="profile-card"> <div class="mask-shadow"></div> <header> <!-- here’s the avatar --> <a href="https://www.linkedin.com/in/hossam-amer-23b9329b/"> <img src="https://drive.google.com/uc?export=view&id=1-C_UIimeqbofJC_lldC7IQzIOX_OYRSn"> </a> <!-- the username --> <h1 style = " font-size:20px; padding:20px; color:#444;  margin-bottom:5px; " >Dr. Hossam Amer</h1> <!-- and role or location --> <h2 style = "  font-size:14px; color:#acacac; text- margin:0; " >Research Scientist at Microsoft</h2> </header> </aside></td> <td><aside class="profile-card"> <div class="mask-shadow"></div> <header> <!-- here’s the avatar --> <a href="https://www.linkedin.com/in/yuanzhu-chen-3408265/"> <img src="https://drive.google.com/uc?export=view&id=1n5Vld5FJzp1TzTISM_fB69zPHAdfDYQn"> </a> <!-- the username --> <h1 style = " font-size:20px; padding:20px; color:#444;  margin-bottom:5px; " >Dr. Yuanzhu Chen</h1> <!-- and role or location --> <h2 style = "  font-size:14px; color:#acacac; text- margin:0; ">Professor at Queen\'s University</h2> </header> </aside></td> </tr> </table> </div> <div class="div_table_"> <table class="table"> <tr> <td><aside class="profile-card"> <div class="mask-shadow"></div> <header> <!-- here’s the avatar --> <a href="https://www.linkedin.com/in/abdelrahman-elhamoly/"> <img src="https://drive.google.com/uc?export=view&id=1a9tR4Xd5XSTmx7Dy_WfRHbVCSpbgAoYb"> </a> <!-- the username --> <h1 style = " font-size:20px; padding:20px; color:#444;  margin-bottom:5px; ">Abdelrahman El-Hamoly</h1> <!-- and role or location --> <h2 style = "  font-size:14px; color:#acacac; text- margin:0; " >Master\'s student at Queen\'s University</h2> </header> </aside></td> <td><aside class="profile-card"> <div class="mask-shadow"></div> <header> <!-- here’s the avatar --> <a href="https://www.linkedin.com/in/ahmed-mohamed-gaber-143b25175/"> <img src="https://drive.google.com/uc?export=view&id=1OiGZwhL23PYhIJzQexYvPDFRrgUIprMj"> </a> <!-- the username --> <h1 style = " font-size:20px; padding:20px; color:#444;  margin-bottom:5px; ">Ahmed Gaber</h1> <!-- and role or location --> <h2 style = "  font-size:14px; color:#acacac; text- margin:0; " >Master\'s student at Queen\'s University</h2> </header> </aside></td> <td><aside class="profile-card"> <div class="mask-shadow"></div> <header> <!-- here’s the avatar --> <a href="https://www.linkedin.com/in/karim-gamal-mahmoud/"> <img src="https://drive.google.com/uc?export=view&id=1Lg2RzimITL9y__X2hycBTX10rJ4o87Ax"> </a> <!-- the username --> <h1 style=" font-size:20px; padding:20px; color:#444;  margin-bottom:5px; ">Karim Gamal</h1> <!-- and role or location --> <h2 style = "  font-size:14px; color:#acacac; text- margin:0; " >Master\'s student at Queen\'s University</h2> </header> </aside></td> </tr> </table> </div>',
-    )
-list_interface.append(interface)
-list_title.append('About us')
-
-
-
-
-demo = gr.TabbedInterface(
-    list_interface, 
-    list_title,
-    title='Multilingual Emoji Prediction Using Federated Learning',
-    css='.gradio-container {color : orange}',)
-    # css='.gradio-container {background-color: white; color : orange}',)
-demo.launch()
-
+    # Call the main function with the input text
+    main(input_text)
