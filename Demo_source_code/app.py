@@ -43,10 +43,16 @@ def preprocess(text):
     return " ".join(new_text)
 
 
+<<<<<<< HEAD
 def main(token_):
   # the MMiniLM model
   API_URL_MMiniLM = "https://api-inference.huggingface.co/models/Karim-Gamal/MMiniLM-L12-finetuned-emojis-IID-Fed"
   headers_MMiniLM = {"Authorization": "Bearer "+token_}
+=======
+# the MMiniLM model
+API_URL_MMiniLM = "https://api-inference.huggingface.co/models/Karim-Gamal/MMiniLM-L12-finetuned-emojis-IID-Fed"
+headers_MMiniLM = {"Authorization": "Bearer your HF read token"}
+>>>>>>> 042d5f037f754197c859b8e30a10b262d2b1ff79
 
 
   def query_MMiniLM(payload):
