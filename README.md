@@ -54,4 +54,4 @@ top of the privacy and distributed benefits of federated learning.
 
 
 ## Demo: 
-> [Link](https://huggingface.co/spaces/Karim-Gamal/Federated-Learning-Based-Multilingual-Emoji-Prediction-Demo-2)
+> [Link](https://huggingface.co/spaces/Karim-Gamal/new_Demo_3)
