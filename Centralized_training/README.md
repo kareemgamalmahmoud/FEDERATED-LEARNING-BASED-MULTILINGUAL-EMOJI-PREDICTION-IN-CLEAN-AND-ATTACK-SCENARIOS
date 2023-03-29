@@ -39,7 +39,7 @@ This folder contains the following training files:
 > | | Model                               | First experiment | IID    | Continue training | |
 > |:---:|:---:|:---:|:---:|:---:|:---:|
 > | | "Tubingen-Oslo" First SemEval Team  | -                | -      | 35.99             | |
-> | | switch-base-8                       | 33.239           | 37.355 | 36.66             | |
+> | | switch-base-8                       | [33.239](https://huggingface.co/Karim-Gamal/switch-base-8-finetuned-SemEval-2018-emojis-cen-1)           | [37.355](https://huggingface.co/Karim-Gamal/switch-base-8-finetuned-SemEval-2018-emojis-IID-Fed) | [36.66](https://huggingface.co/Karim-Gamal/switch-base-8-finetuned-SemEval-2018-emojis-cen-2)             | |
 > | | Twitter/twhin-bert-base             | 36.96            | 37.475 | 38.133            | |
 > | | cardiffnlp/twitter-xlm-roberta-base | 35.971           | 36.727 | 37.647            | |
 > | | Multilingual-MiniLM                 | 33.368           | 33.907 | 35.937            | |
