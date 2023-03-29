@@ -50,7 +50,8 @@ top of the privacy and distributed benefits of federated learning.
 
 ## The Team : 
 
-> ![image](https://user-images.githubusercontent.com/51359449/224574743-7e2ae267-13c6-49f3-b018-61595e3d6d9a.png)
+> ![image](https://user-images.githubusercontent.com/51359449/228678951-2392e73e-0436-454b-8651-6327f159763c.png)
+
 
 ## Demo: 
 > [Link](https://huggingface.co/spaces/Karim-Gamal/Federated-Learning-Based-Multilingual-Emoji-Prediction-Demo-2)
