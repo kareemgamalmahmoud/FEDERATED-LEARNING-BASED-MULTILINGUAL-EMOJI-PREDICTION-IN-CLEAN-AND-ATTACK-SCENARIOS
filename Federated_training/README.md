@@ -42,17 +42,23 @@ Specifically, we labeled the first 10 labels out of the 20 in each batch with th
 
 ### Table_1 : SemEval testing data with Multilingual setting in clean and attack senarios for Attackers ratio 25%
 
-| MiniLM |First experiment|IID|Non-IID|Continue training| | XLM-Roberta |First experiment|IID|Non-IID|Continue training|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|Clean FedAVG|31.462|32.797|32.038|32.995| |Clean FedAVG|35.321|36.849|36.317|35.73|
-|FedAvg|31.462|32.311|30.476|32.738| |FedAvg|35.321|36.357|33.563|35.649|
-|Krum|31.462|32.21|30.767|32.738| |Krum|35.321|36.528|35.388|35.649|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
-| BERT-Base |First experiment|IID|Non-IID|Continue training| | LSTM |First experiment|IID|Non-IID|Continue training|
-|Clean FedAVG|33.493|34.986|34.977|34.192| |Clean FedAVG|27.65|29.2|25.36|29.16|
-|FedAvg|33.493|34.753|32.783|33.991| |FedAvg|27.65|29.17|25.33|28.86|
-|Krum|33.493|34.98|33.43|33.991| |Krum|27.65|27.13|23.22|28.86|
+| BERT-Base |First experiment|IID|Non-IID|Continue training| 
+|:---:|:---:|:---:|:---:|:---:|
+|Clean|35.321|36.849|36.317|35.73|
+|FedAvg|35.321|36.357|33.563|35.649|
+|Krum|35.321|36.528|35.388|35.649|
+| | | | | | 
+| | | | | |
+| XLM-Roberta |First experiment|IID|Non-IID|Continue training|
+|Clean|33.493|34.986|34.977|34.192|                   
+|FedAvg|33.493|34.753|32.783|33.991|                         
+|Krum|33.493|34.98|33.43|33.991|   
+| | | | | | 
+| | | | | |
+| MiniLM |First experiment|IID|Non-IID|Continue training| 
+|Clean|31.462|32.797|32.038|32.995|        
+|FedAvg|31.462|32.311|30.476|32.738|              
+|Krum|31.462|32.21|30.767|32.738|   
 
 > Note: the evaluation matrix here is Mac-F1
 
@@ -70,17 +76,23 @@ Specifically, we labeled the first 10 labels out of the 20 in each batch with th
 
 ### Table_2 : SemEval testing data with Multilingual setting in clean and attack senarios for Attackers ratio 50%
 
-| MiniLM |First experiment|IID|Non-IID|Continue training| | XLM-Roberta |First experiment|IID|Non-IID|Continue training|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|Clean FedAVG|31.462|32.797|32.038|32.995| |Clean FedAVG|35.321|36.849|36.317|35.73|
-|FedAvg|31.462|25.343|26.714|23.932| |FedAvg|35.321|26.283|28.1|24.492|
-|Krum|31.462|32.692|30.512|23.932| |Krum|35.321|36.565|35.219|24.492|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
-| BERT-Base |First experiment|IID|Non-IID|Continue training| | LSTM |First experiment|IID|Non-IID|Continue training|
-|Clean FedAVG|33.493|34.986|34.977|34.192| |Clean FedAVG|27.65|29.2|25.36|29.16|
-|FedAvg|33.493|27.681|27.517|23.344| |FedAvg|27.65|29.07|25.44|29.5|
-|Krum|33.493|34.872|32.944|23.344| |Krum|27.65|27.26|25.61|29.5|
+| BERT-Base |First experiment|IID|Non-IID|Continue training|      
+|:---:|:---:|:---:|:---:|:---:|
+|Clean|35.321|36.849|36.317|35.73|
+|FedAvg|35.321|26.283|28.1|24.492|
+|Krum|35.321|36.565|35.219|24.492|                           
+| | | | | |
+| | | | | |
+| XLM-Roberta |First experiment|IID|Non-IID|Continue training|
+|Clean|33.493|34.986|34.977|34.192|                    
+|FedAvg|33.493|27.681|27.517|23.344|                          
+|Krum|33.493|34.872|32.944|23.344|                            
+| | | | | |
+| | | | | |
+| MiniLM |First experiment|IID|Non-IID|Continue training| 
+|Clean|31.462|32.797|32.038|32.995|                    
+|FedAvg|31.462|25.343|26.714|23.932|                          
+|Krum|31.462|32.692|30.512|23.932| 
 
 > Note: the evaluation matrix here is Mac-F1
 
