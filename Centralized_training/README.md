@@ -40,9 +40,9 @@ This folder contains the following training files:
 > |:---:|:---:|:---:|:---:|:---:|:---:|
 > | | "Tubingen-Oslo" First SemEval Team  | -                | -      | 35.99             | |
 > | | switch-base-8                       | [33.239](https://huggingface.co/Karim-Gamal/switch-base-8-finetuned-SemEval-2018-emojis-cen-1)           | [37.355](https://huggingface.co/Karim-Gamal/switch-base-8-finetuned-SemEval-2018-emojis-IID-Fed) | [36.66](https://huggingface.co/Karim-Gamal/switch-base-8-finetuned-SemEval-2018-emojis-cen-2)             | |
-> | | Twitter/twhin-bert-base             | 36.96            | 37.475 | 38.133            | |
-> | | cardiffnlp/twitter-xlm-roberta-base | 35.971           | 36.727 | 37.647            | |
-> | | Multilingual-MiniLM                 | 33.368           | 33.907 | 35.937            | |
+> | | Twitter/twhin-bert-base             | [36.96](https://huggingface.co/Karim-Gamal/BERT-base-finetuned-SemEval-2018-emojis-cen-1)            | [37.475](https://huggingface.co/Karim-Gamal/BERT-base-finetuned-SemEval-2018-emojis-IID-Fed) | [38.133](https://huggingface.co/Karim-Gamal/BERT-base-finetuned-SemEval-2018-emojis-cen-2)            | |
+> | | cardiffnlp/twitter-xlm-roberta-base | [35.971](https://huggingface.co/Karim-Gamal/XLM-Roberta-finetuned-SemEval-2018-emojis-cen-1)           | [36.727](https://huggingface.co/Karim-Gamal/XLM-Roberta-finetuned-SemEval-2018-emojis-cen-2) | [37.647](https://huggingface.co/Karim-Gamal/XLM-Roberta-finetuned-SemEval-2018-emojis-IID-Fed)            | |
+> | | Multilingual-MiniLM                 | [33.368](https://huggingface.co/Karim-Gamal/MMiniLM-L12-finetuned-SemEval-2018-emojis-cen-1)           | [33.907](https://huggingface.co/Karim-Gamal/MMiniLM-L12-finetuned-SemEval-2018-emojis-IID-Fed) | [35.937](https://huggingface.co/Karim-Gamal/MMiniLM-L12-finetuned-SemEval-2018-emojis-cen-2)            | |
 
 
 > Note: the evaluation matrix here is Mac-F1
@@ -59,9 +59,9 @@ This folder contains the following training files:
 > |Model|First experiment|IID|Non-IID|Continue training|
 > |:---:|:---:|:---:|:---:|:---:|
 > | "Tubingen-Oslo" First SemEval Team  | - | - | - | 35.99 |
-> |Twitter/twhin-bert-base|35.321|36.849|36.317|35.73|
-> |cardiffnlp/twitter-xlm-roberta-base |33.493|34.986|34.977|34.192|
-> |Multilingual-MiniLM |31.462|32.797|32.038|32.995|
+> |Twitter/twhin-bert-base|[35.321](https://huggingface.co/Karim-Gamal/BERT-base-finetuned-emojis-cen-1)|[36.849](https://huggingface.co/Karim-Gamal/BERT-base-finetuned-emojis-IID-Fed)|[36.317](https://huggingface.co/Karim-Gamal/BERT-base-finetuned-emojis-non-IID-Fed)|[35.73](https://huggingface.co/Karim-Gamal/BERT-base-finetuned-emojis-cen-2)|
+> |cardiffnlp/twitter-xlm-roberta-base |[33.493](https://huggingface.co/Karim-Gamal/XLM-Roberta-finetuned-emojis-cen-1)|[34.986](https://huggingface.co/Karim-Gamal/XLM-Roberta-finetuned-emojis-IID-Fed)|[34.977](https://huggingface.co/Karim-Gamal/XLM-Roberta-finetuned-emojis-non-IID-Fed)|[34.192](https://huggingface.co/Karim-Gamal/XLM-Roberta-finetuned-emojis-cen-2)|
+> |Multilingual-MiniLM |[31.462](https://huggingface.co/Karim-Gamal/MMiniLM-L12-finetuned-emojis-cen-1)|[32.797](https://huggingface.co/Karim-Gamal/MMiniLM-L12-finetuned-emojis-IID-Fed)|[32.038](https://huggingface.co/Karim-Gamal/MMiniLM-L12-finetuned-emojis-non-IID-Fed)|[32.995](https://huggingface.co/Karim-Gamal/MMiniLM-L12-finetuned-emojis-cen-2)|
 
 
 > Note: the evaluation matrix here is Mac-F1
