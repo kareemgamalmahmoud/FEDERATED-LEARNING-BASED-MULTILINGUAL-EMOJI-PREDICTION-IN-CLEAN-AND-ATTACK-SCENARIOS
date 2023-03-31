@@ -50,7 +50,7 @@ top of the privacy and distributed benefits of federated learning.
 
 ## The Team : 
 
-> ![image](https://user-images.githubusercontent.com/51359449/228678951-2392e73e-0436-454b-8651-6327f159763c.png)
+> ![image](https://user-images.githubusercontent.com/51359449/229025744-1fb7e7db-88ae-41b6-b1c0-4ab3021a00bf.png)
 
 
 ## Demo: 
