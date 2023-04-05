@@ -104,4 +104,4 @@ Specifically, we labeled the first 10 labels out of the 20 in each batch with th
 
 > These results show that Krum can perform well even when the data are toxic, and it can be a useful aggregation function for federated learning in scenarios where there is a possibility of data poisoning attacks.
 
-> You can find the full results (here)[https://docs.google.com/spreadsheets/d/1jcixbuYejpAw8Qzi41j5XdWv5u9n08rgghVOc5hTT9k/edit?usp=sharing]
+> You can find the full results [here](https://docs.google.com/spreadsheets/d/1jcixbuYejpAw8Qzi41j5XdWv5u9n08rgghVOc5hTT9k/edit?usp=sharing)
