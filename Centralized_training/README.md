@@ -117,3 +117,5 @@ This folder contains the following training files:
 > The Twitter/twhin-bert-base model achieved the highest scores among the models, but still relatively low. The cardiffnlp/twitter-xlm-roberta-base and Multilingual-MiniLM models had similar performance, with the latter slightly outperforming the former. 
 
 > Overall, these results suggest that fine-tuning on German data may be necessary to achieve better performance on German language tasks.
+
+> You can find the full results [here](https://docs.google.com/spreadsheets/d/1jcixbuYejpAw8Qzi41j5XdWv5u9n08rgghVOc5hTT9k/edit?usp=sharing)
