@@ -4,20 +4,18 @@
 
 # Abstract
 
-> Federated learning is a rapidly growing field in the machine learning community. This growth is because federated
-learning is decentralized and private by design. Model training in federated learning is distributed over multiple
-clients where each client has its own private data. Then, a server aggregates the training done on these multiple
-clients without access to their data, which could be emojis widely used in any social media service and instant
-messaging platforms to express users’ sentiments. 
-
-> Therefore, this paper proposes federated learning-based
-multilingual emoji prediction in both clean and attack scenarios. Emoji prediction data have been crawled from
-both Twitter and standard SemEval emoji datasets. This data is used to train and evaluate different transformer
-model sizes including a sparsely activated transformer with either the assumption of clean data in all clients or
-poisoned data via label flipping attack in some clients. Experimental results on these models show that federated
-learning in either clean or attacked scenarios performs similarly to centralized training in multilingual emoji
-prediction on seen and unseen languages under different data sources and distributions. This performance is on
-top of the privacy and distributed benefits of federated learning.
+> Federated learning is a growing field in the machine learning community due to its decentralized and private
+design. Model training in federated learning is distributed over multiple clients giving access to lots of client data
+while maintaining privacy. Then, a server aggregates the training done on these multiple clients without access
+to their data, which could be emojis widely used in any social media service and instant messaging platforms
+to express users’ sentiments. This paper proposes federated learning-based multilingual emoji prediction in
+both clean and attack scenarios. Emoji prediction data have been crawled from both Twitter and SemEval emoji
+datasets. This data is used to train and evaluate different transformer model sizes including a sparsely activated
+transformer with either the assumption of clean data in all clients or poisoned data via label flipping attack in some
+clients. Experimental results on these models show that federated learning in either clean or attacked scenarios
+performs similarly to centralized training in multilingual emoji prediction on seen and unseen languages under
+different data sources and distributions. Our trained transformers perform better than other techniques on the
+SemEval emoji dataset in addition to the privacy as well as distributed benefits of federated learning
 
 # Methodology:
 
