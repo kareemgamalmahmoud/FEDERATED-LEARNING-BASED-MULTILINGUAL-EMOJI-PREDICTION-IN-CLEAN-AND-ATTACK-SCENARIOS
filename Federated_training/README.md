@@ -103,3 +103,5 @@ Specifically, we labeled the first 10 labels out of the 20 in each batch with th
 > Similarly, in the case of Twitter/twhin-bert-base, FedAvg's performance has decreased to around 27.68% accuracy for IID and 27.51% for non-IID, while Krum's performance has decreased to 34.87% for IID and 32.94% for non-IID. Here again, Krum has performed better than FedAvg in handling the toxic data, with around 7% higher accuracy for IID and 5% higher accuracy for non-IID.
 
 > These results show that Krum can perform well even when the data are toxic, and it can be a useful aggregation function for federated learning in scenarios where there is a possibility of data poisoning attacks.
+
+> You can find the full results [here](https://docs.google.com/spreadsheets/d/1jcixbuYejpAw8Qzi41j5XdWv5u9n08rgghVOc5hTT9k/edit?usp=sharing)
